@@ -51,15 +51,15 @@ data.forEach((table_info) => {
         columns: false,
         trim: true,
         skip_empty_lines: true,
-        cast: function (value, _context) {
+        cast: function(value, _context) {
           return value == "" ? null : value;
         },
       })
     )
-    .on("data", function (data) {
+    .on("data", function(data) {
       table_data.push(data);
     })
-    .on("end", () => {
+    .on("end", function() {
       connection.query(
         table_info.query,
         [
