@@ -1,13 +1,9 @@
 /** @format */
 
-const express = require("express");
+// create express js server
+const apis = require("./config/api");
 
-// Create the Express applictation
-const app = express();
-
-// Start the server
 const PORT = process.env.PORT || 8081;
-app.listen(
-  PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
-);
+apis.app.listen(PORT, function () {
+  console.log("server connected to port " + PORT);
+});
