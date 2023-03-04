@@ -4,6 +4,11 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const sql = require("../models/sql");
 
+// allows us to use .env variables
+require("dotenv").config();
+
+console.log(process.env);
+
 // create a backend server
 const app = express();
 

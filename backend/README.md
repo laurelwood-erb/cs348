@@ -8,7 +8,8 @@ run `npm i` on the root level of the backend directory
 
 ### 2. Download mysql
 
-you must have mysql downloaded. You can download it from "https://dev.mysql.com/downloads/mysql/". Once downloaded, it will prompt you to set your password. Please replace DATABASE_PASSWORD in script/populate.js and script/tables.js.
+you must have mysql downloaded. You can download it from "https://dev.mysql.com/downloads/mysql/". Once downloaded, it will prompt you to set your password.  
+Please replace DATABASE_PASSWORD in script/populate.js, script/tables.js, and .env
 
 ### 3. Create tables
 

@@ -3,19 +3,16 @@
 const mysql = require("mysql");
 
 const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "123456789",
-  database: "cs348",
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_NAME,
   connectionLimit: 100,
   waitForConnections: true,
 });
 
 pool.query(
-  "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456789'"
+  `ALTER USER '${process.env.DATABASE_USER}'@'${process.env.DATABASE_HOST}' IDENTIFIED WITH mysql_native_password BY '${process.env.DATABASE_PASSWORD}'`
 );
 
 module.exports = pool;
-
-// laurelwood
-// iSoIpEoQ1Lg4aYPc
