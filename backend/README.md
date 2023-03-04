@@ -8,8 +8,7 @@ run `npm i` on the root level of the backend directory
 
 ### 2. Download mysql
 
-you must have mysql downloaded. You can download it from "https://dev.mysql.com/downloads/mysql/". Once downloaded, it will prompt you to set your password.  
-Please replace DATABASE_PASSWORD in script/populate.js, script/tables.js, and .env
+you must have mysql downloaded. You can download it from "https://dev.mysql.com/downloads/mysql/". Once downloaded, it will prompt you to set your password. Please replace DATABASE_PASSWORD in script/populate.js and script/tables.js.
 
 ### 3. Create tables
 
@@ -23,4 +22,11 @@ run `node script/populate`. This will populate our data.
 
 finally, run `node app.js` to start up the backend server. We have one endpoint `/api/query` which is a post request that will execute a query from the body. (query can be SELECT, INSERT, UPDATE, DELETE, etc).
 
-e.g. POST to http://localhost:8081/api/query with header set to { 'Content-Type': 'application/json' } and body set to { 'query': 'SELECT \* FROM airplane LIMIT 10' }
+e.g. POST to http://localhost:8081/api/query with header set to 
+```
+{ 'Content-Type': 'application/json' }
+```
+and body set to 
+```
+{ 'query': 'SELECT \* FROM airplane LIMIT 10' }
+```
