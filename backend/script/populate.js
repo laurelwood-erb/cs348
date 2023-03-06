@@ -40,13 +40,13 @@ const data = [
       "INSERT INTO Airport (id, name, city, country, IATA, ICAO, latitude, longitude, altitude, timezone, DST) VALUES ?",
     indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   },
-  // {
-  //   name: "route",
-  //   path: "../data/routes.csv",
-  //   query:
-  //     "INSERT INTO Route (id, airline_id, source_airport_id, destination_airport_id, codeshare, equipment) VALUES ?",
-  //   indices: [1, 3, 5, 6, 8],
-  // },
+  {
+    name: "route",
+    path: "../data/routes.csv",
+    query:
+      "INSERT INTO Route (airline_id, source_airport_id, destination_airport_id, codeshare, equipment) VALUES ?",
+    indices: [1, 3, 5, 6, 8],
+  },
 ];
 
 connection.connect();
@@ -61,10 +61,11 @@ data.forEach((table_info) => {
         from_line: 2,
         columns: false,
         trim: true,
+        skip_records_with_empty_values: true,
         skip_empty_lines: true,
         cast: function (value, _context) {
           if (value == "") return null;
-          if (value.match(/^[\\|']*$/)) return null;
+          if (value.match(/^[\\|'|N]*$/)) return null;
           return value;
         },
       })
