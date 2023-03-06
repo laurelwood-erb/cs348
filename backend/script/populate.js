@@ -3,6 +3,7 @@
 const fs = require("fs");
 const { parse } = require("csv-parse");
 const mysql = require("mysql2");
+const path = require("path");
 
 const DATABASE_HOST = "localhost";
 const DATABASE_USER = "root";
@@ -21,14 +22,14 @@ const connection = mysql.createConnection({
 const data = [
   {
     name: "airline",
-    path: "../data/airlines.csv",
+    path: path.join(__dirname, "../data/airlines.csv"),
     query:
       "INSERT INTO Airline (id, name, alias, IATA, ICAO, callsign, country, active) VALUES ?",
     indices: [0, 1, 2, 3, 4, 5, 6, 7],
   },
   {
     name: "airplane",
-    path: "../data/airplanes.csv",
+    path: path.join(__dirname, "../data/airplanes.csv"),
     query: "INSERT INTO Airplane (name, IATA, ICAO) VALUES ?",
     indices: [0, 1, 2],
   },
