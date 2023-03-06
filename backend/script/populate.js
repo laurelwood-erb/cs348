@@ -32,13 +32,13 @@ const data = [
     query: "INSERT INTO Airplane (name, IATA, ICAO) VALUES ?",
     indices: [0, 1, 2],
   },
-  // {
-  //   name: "airport",
-  //   path: "../data/airports.csv",
-  //   query:
-  //     "INSERT INTO Airport (id, name, city, country, IATA, ICAO, latitude, longitude, altitude, timezone, DST) VALUES ?",
-  //   indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  // },
+  {
+    name: "airport",
+    path: "../data/airports.csv",
+    query:
+      "INSERT INTO Airport (id, name, city, country, IATA, ICAO, latitude, longitude, altitude, timezone, DST) VALUES ?",
+    indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  },
   // {
   //   name: "route",
   //   path: "../data/routes.csv",
